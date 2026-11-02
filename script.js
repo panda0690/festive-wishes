@@ -35,9 +35,10 @@ const setFestival = (festival) => {
 const setTheme = (theme) => { state.theme = theme; document.body.dataset.theme = theme; document.querySelectorAll('.theme-choice').forEach((button) => button.classList.toggle('active', button.dataset.themeChoice === theme)); };
 const render = () => {
   const text = copy[state.festival][state.lang];
+  const recipientText = state.to === 'You' ? (state.lang === 'hi' ? 'आपको' : 'You!') : state.to;
   $('#heroEyebrow').textContent = text.eyebrow;
-  heroTitle.innerHTML = `${text.title}<br /><span>${state.to}${state.to === 'You' ? '!' : ''}</span>`;
-  $('#fromLine').innerHTML = `${state.lang === 'hi' ? 'शुभकामनाएं' : 'A warm wish from'} <strong>${state.from}</strong>`;
+  heroTitle.innerHTML = `${text.title}<br /><span>${recipientText}</span>`;
+  $('#fromLine').innerHTML = state.lang === 'hi' ? `<strong>${state.from}</strong> की ओर से शुभकामनाएं` : `A warm wish from <strong>${state.from}</strong>`;
   $('#heroMessage').textContent = text.message;
   $('#signature').textContent = state.from;
   $('#languageInput').value = state.lang;
