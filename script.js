@@ -1,4 +1,5 @@
 const params = new URLSearchParams(window.location.search);
+const PUBLIC_BASE = 'https://panda0690.github.io/festive-wishes/';
 const state = {
   festival: params.get('festival') === 'newyear' ? 'newyear' : 'diwali',
   from: params.get('from') || 'Someone special',
@@ -19,6 +20,11 @@ const copy = {
 };
 
 const $ = (selector) => document.querySelector(selector);
+const getShareUrl = () => {
+  const url = new URL(PUBLIC_BASE);
+  url.search = new URLSearchParams({ from: state.from, to: state.to, festival: state.festival, lang: state.lang, theme: state.theme }).toString();
+  return url.toString();
+};
 const heroTitle = $('#headline');
 const setFestival = (festival) => {
   state.festival = festival;
@@ -46,11 +52,11 @@ $('#wishForm').addEventListener('submit', (event) => {
   event.preventDefault();
   const from = $('#fromInput').value.trim(); const to = $('#toInput').value.trim();
   if (!from || !to) return;
-  const url = new URL(window.location.href); url.search = new URLSearchParams({ from, to, festival: state.festival, lang: state.lang, theme: state.theme }).toString();
+  const url = new URL(PUBLIC_BASE); url.search = new URLSearchParams({ from, to, festival: state.festival, lang: state.lang, theme: state.theme }).toString();
   $('#generatedLink').value = url.toString(); $('#whatsappLink').href = `https://wa.me/?text=${encodeURIComponent(`${copy[state.festival][state.lang].title} ${to}! ${url}`)}`; $('#result').hidden = false; $('#result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
 $('#copyButton').addEventListener('click', async () => { await navigator.clipboard.writeText($('#generatedLink').value); $('#copyButton').textContent = 'Copied ✓'; setTimeout(() => { $('#copyButton').textContent = 'Copy'; }, 1800); });
-const share = async () => { if (navigator.share) await navigator.share({ title: document.title, text: `${copy[state.festival][state.lang].title} ${state.to}!`, url: window.location.href }); else { await navigator.clipboard.writeText(window.location.href); alert('Wish link copied!'); } };
+const share = async () => { const shareUrl = getShareUrl(); if (navigator.share) await navigator.share({ title: document.title, text: `${copy[state.festival][state.lang].title} ${state.to}!`, url: shareUrl }); else { await navigator.clipboard.writeText(shareUrl); alert('Wish link copied!'); } };
 $('#shareButton').addEventListener('click', share); $('#nativeShareButton').addEventListener('click', share);
 $('.lang-button')?.addEventListener('click', () => { state.lang = state.lang === 'en' ? 'hi' : 'en'; render(); });
 setTheme(state.theme); render();
