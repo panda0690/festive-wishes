@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Send a beautiful personalized Diwali or New Year wish to someone special." />
+    <meta name="theme-color" content="#190b31" />
+    <title>Festive Wishes — Share the feeling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-festival="diwali">
+    <div class="sparkles" aria-hidden="true"></div>
+    <header class="topbar"><a href="./" class="brand">✦ Festive <span>Wishes</span></a><div class="top-actions"><button class="lang-button" data-lang="en">हिंदी / English</button><a href="#make" class="mini-button">Create a wish</a></div></header>
+
+    <main>
+      <section class="wish-hero">
+        <div class="diya diya-left">🪔</div><div class="diya diya-right">🪔</div>
+        <div class="hero-content"><p class="eyebrow" id="heroEyebrow">A little light, a lot of love</p><h1 id="headline">Happy Diwali,<br /><span id="recipient">You!</span></h1><p class="from-line" id="fromLine">A warm wish from <strong>Someone special</strong></p><p class="hero-message" id="heroMessage">May your home glow with happiness, your heart stay peaceful, and every new beginning bring you closer to your dreams.</p><div class="hero-actions"><button class="primary-button" id="makeButton">Make a wish for someone <span>→</span></button><button class="share-button" id="shareButton">↗ Share this wish</button></div></div>
+        <div class="wish-seal">✦<small>made with<br />good vibes</small></div>
+      </section>
+
+      <section class="chain-note"><span class="chain-icon">↗</span><div><strong>Pass the good feeling on</strong><p>Got this wish from someone? Create your own and send a little happiness forward.</p></div></section>
+
+      <section class="make-section" id="make"><div class="section-label">01 / create your wish</div><h2>Make someone’s day<br /><em>a little brighter.</em></h2><div class="form-card"><div class="festival-switch"><button class="festival-choice active" data-festival-choice="diwali">🪔 Diwali</button><button class="festival-choice" data-festival-choice="newyear">✨ New Year</button></div><form id="wishForm"><div class="fields"><label>From<input id="fromInput" name="from" placeholder="Your name" maxlength="40" required /></label><label>Send to<input id="toInput" name="to" placeholder="Friend's name" maxlength="40" required /></label></div><label class="language-label">Greeting language<select id="languageInput"><option value="en">English</option><option value="hi">हिंदी</option></select></label><button class="generate-button" type="submit">Generate my wish link <span>✦</span></button></form><div class="result" id="result" hidden><p>Your wish link is ready 🎉</p><div class="link-box"><input id="generatedLink" readonly /><button id="copyButton">Copy</button></div><div class="result-actions"><button id="nativeShareButton">Share now ↗</button><a id="whatsappLink" target="_blank" rel="noreferrer">Send on WhatsApp</a></div></div></div></section>
+
+      <section class="how-section"><div class="section-label">02 / how it works</div><div class="steps"><div><span>01</span><h3>Personalize</h3><p>Add your name, their name, and choose a festival.</p></div><div><span>02</span><h3>Share</h3><p>Send a beautiful link through WhatsApp or anywhere.</p></div><div><span>03</span><h3>Pass it on</h3><p>They can create their own wish and continue the chain.</p></div></div></section>
+
+      <section class="ad-slot" aria-label="Advertisement space"><span>your brand could live here</span><small>Reserved for a tasteful ad or festive sponsor</small></section>
+    </main>
+
+    <footer><span>Made to spread a little more light ✦</span><a href="#top">Back to top ↑</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
