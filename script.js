@@ -15,7 +15,7 @@ const copy = {
   },
   newyear: {
     en: { title: 'Happy New Year,', eyebrow: 'New year, fresh energy', message: 'May the year ahead bring you brave beginnings, beautiful moments, and more reasons to smile every day.' },
-    hi: { title: 'नव वर्ष की शुभकामनाएं,', eyebrow: 'नई शुरुआत, नई खुशियां', message: 'आने वाला साल आपके लिए नई शुरुआत, खूबसूरत पल और हर दिन मुस्कुराने की कई वजहें लेकर आए।' }
+    hi: { title: 'नए साल की शुभकामनाएं,', eyebrow: 'नई शुरुआत, नई खुशियां', message: 'आने वाला साल आपके लिए नई शुरुआत, खूबसूरत पल और हर दिन मुस्कुराने की कई वजहें लेकर आए।' }
   }
 };
 
