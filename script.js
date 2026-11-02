@@ -33,6 +33,7 @@ const render = () => {
   heroTitle.innerHTML = `${text.title}<br /><span>${state.to}${state.to === 'You' ? '!' : ''}</span>`;
   $('#fromLine').innerHTML = `${state.lang === 'hi' ? 'शुभकामनाएं' : 'A warm wish from'} <strong>${state.from}</strong>`;
   $('#heroMessage').textContent = text.message;
+  $('#signature').textContent = state.from;
   $('#languageInput').value = state.lang;
   document.title = `${text.title.replace(',', '')} ${state.to} — Festive Wishes`;
 };
